@@ -19,6 +19,7 @@
         <form id="orderForm" name="order" data-netlify="true">
             <div class="form-section">
                 <h2>Event Details</h2>
+
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -30,6 +31,27 @@
 
                 <label for="date">Event Date:</label>
                 <input type="date" id="date" name="date" required>
+
+                <label for="time">Event Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="eventType">Event Type:</label>
+                <select id="eventType" name="eventType" required>
+                    <option value="" disabled selected>Select Event Type</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="private">Private Party</option>
+                </select>
+
+                <label for="guestCount">Estimated Guest Count:</label>
+                <input type="number" id="guestCount" name="guestCount" placeholder="Enter guest count" required>
+
+                <label for="allergies">Food Allergies:</label>
+                <textarea id="allergies" name="allergies" placeholder="Please mention any food allergies"></textarea>
+
+                <label for="dietPreferences">Dietary Preferences:</label>
+                <textarea id="dietPreferences" name="dietPreferences" placeholder="Please mention any dietary preferences"></textarea>
             </div>
 
             <div class="form-section">
