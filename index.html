@@ -10,10 +10,11 @@
 
   <header>
     <h1>BongoBites Event Catering</h1>
+    <img src="logo.png" alt="BongoBites Logo" class="logo">
   </header>
 
   <section class="order-form">
-    <form action="#">
+    <form id="orderForm" name="order" data-netlify="true">
       <div class="form-section">
         <h2>Event Details</h2>
         <label for="name">Name:</label>
@@ -35,9 +36,9 @@
           <div class="food-card">
             <img src="biryani.jpg" alt="Biryani">
             <h3>Biryani (Lamb or Chicken)</h3>
-            <p>Includes salad and chili. €9.50</p>
+            <p>€9.50 (Includes salad and chili)</p>
             <label for="biryani">Quantity:</label>
-            <input class="quantity-input" type="number" id="biryani" name="biryani" min="1" value="1">
+            <input class="quantity-input" type="number" id="biryani" name="biryani" min="0" value="0" data-price="9.50">
           </div>
 
           <div class="food-card">
@@ -45,7 +46,7 @@
             <h3>Chicken Pilau</h3>
             <p>€8.50</p>
             <label for="pilau">Quantity:</label>
-            <input class="quantity-input" type="number" id="pilau" name="pilau" min="1" value="1">
+            <input class="quantity-input" type="number" id="pilau" name="pilau" min="0" value="0" data-price="8.50">
           </div>
 
           <div class="food-card">
@@ -53,7 +54,7 @@
             <h3>Sambusa</h3>
             <p>€1.20</p>
             <label for="sambusa">Quantity:</label>
-            <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="1" value="1">
+            <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="0" value="0" data-price="1.20">
           </div>
 
           <div class="food-card">
@@ -61,11 +62,18 @@
             <h3>Spring Rolls</h3>
             <p>€1.20</p>
             <label for="springrolls">Quantity:</label>
-            <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="1" value="1">
+            <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="0" value="0" data-price="1.20">
           </div>
         </div>
       </div>
 
+      <div class="summary-section">
+        <h2>Your Quote</h2>
+        <div id="quote-summary"></div>
+        <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
+      </div>
+
+      <input type="hidden" name="form-name" value="order">
       <button type="submit" class="submit-btn">Submit Order</button>
     </form>
   </section>
