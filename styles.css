@@ -1,144 +1,138 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background: linear-gradient(45deg, #4A90E2, #7BDCB5);
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #4A90E2, #00C853);
+  padding: 1rem;
+  text-align: center;
 }
 
 header h1 {
-    color: white;
-    font-size: 2.5rem;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.islamic-message {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 .logo {
-    max-width: 100px;
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 20px;
+  max-width: 120px;
+  display: inline-block;
+  margin: 0.5rem;
+  float: left;
 }
 
 .order-form {
-    max-width: 900px;
-    margin: 3rem auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .form-section {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .form-section h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #7BDCB5;
-    padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #00C853;
 }
 
 input[type="text"],
 input[type="tel"],
 input[type="date"],
+input[type="number"],
 input[type="time"],
 textarea,
 select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    transition: border-color 0.3s;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="date"]:focus,
+input[type="number"]:focus,
 input[type="time"]:focus,
 textarea:focus,
 select:focus {
-    border-color: #7BDCB5;
-    outline: none;
+  box-shadow: 0 0 8px rgba(0, 200, 83, 0.4);
 }
 
 .food-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
 .food-card {
-    flex: 1 1 48%;
-    padding: 1.5rem;
-    background: #f0f0f0;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+  padding: 1rem;
+  background: #f4f4f4;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .food-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+  background: #00C853;
+  color: white;
 }
 
 .food-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.food-card h3 {
-    margin: 1rem 0;
-    font-size: 1.5rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .quantity-input {
-    margin-top: 1rem;
-    width: 60px;
-    padding: 5px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-.quantity-input:focus {
-    border-color: #4A90E2;
+  margin-top: 0.5rem;
+  padding: 8px;
+  width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .summary-section {
-    background: #f5f5f5;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
 }
 
 .submit-btn {
-    display: block;
-    width: 100%;
-    padding: 1.2rem;
-    background: #4A90E2;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .submit-btn:hover {
-    background: #7BDCB5;
+  background: #00C853;
+}
+
+.hidden {
+  display: none;
 }
