@@ -1,107 +1,122 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-header {
-  background: linear-gradient(45deg, #1E88E5, #00C853);
-  padding: 1rem;
-  text-align: center;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
 }
 
-header h1 {
-  color: white;
-  font-size: 2.5rem;
+.header h1 {
+    margin: 0;
+    font-size: 2.2rem;
 }
 
-.logo {
-  max-width: 120px;
-  display: block;
-  margin: 0.5rem auto;
-}
-.order-form {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+.logo img {
+    max-width: 150px;
 }
 
-.form-section {
-  margin-bottom: 2rem;
+.form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.form-section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  border-bottom: 2px solid #00C853;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: #333;
 }
 
-input[type="text"], input[type="tel"], input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 1rem;
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
-.food-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+textarea {
+    resize: none;
+    height: 100px;
 }
 
-.food-card {
-  flex: 1 0 45%;
-  padding: 1rem;
-  background: #f4f4f4;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  transition: all 0.3s ease;
+.food-selection .food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.food-card:hover {
-  background: #00C853;
-  color: white;
-}
-
-.food-card img {
-  max-width: 100%;
-  height: auto;
-}
-
-.food-card h3 {
-  margin: 1rem 0;
+.food-selection .food-item input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 .quantity-input {
-  margin-top: 1rem;
-  display: inline-block;
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
 }
 
-.summary-section {
-  background: #f5f5f5;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-top: 2rem;
-}
-.submit-btn {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background: #1E88E5;
-  color: white;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 4px;
+#quote-summary {
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.submit-btn:hover {
-  background: #00C853;
+#quote-summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#summary-details {
+    font-size: 1.2rem;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
 }
