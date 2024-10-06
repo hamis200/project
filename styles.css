@@ -1,109 +1,149 @@
+/* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
 }
 
-header {
-  background: linear-gradient(45deg, #1E88E5, #00C853);
-  padding: 1rem;
-  text-align: center;
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  color: white;
+/* Header */
+h1 {
+  text-align: center;
+  color: #333;
   font-size: 2.5rem;
 }
 
-.logo {
-  max-width: 120px;
-  display: block;
-  margin: 0.5rem auto;
+h2 {
+  color: #333;
+  font-size: 2rem;
 }
 
-.order-form {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.form-section {
-  margin-bottom: 2rem;
-}
-
-.form-section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  border-bottom: 2px solid #00C853;
-}
-
-input[type="text"], input[type="tel"], input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.food-options {
+/* Form Styles */
+form {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
-.food-card {
-  flex: 1 0 45%;
-  padding: 1rem;
-  background: #f4f4f4;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.food-card:hover {
-  background: #00C853;
-  color: white;
-}
-
-.food-card img {
-  max-width: 100%;
-  height: auto;
-}
-
-.food-card h3 {
-  margin: 1rem 0;
-}
-
-.quantity-input {
-  margin-top: 1rem;
-  display: inline-block;
-}
-
-.summary-section {
-  background: #f5f5f5;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-top: 2rem;
-}
-
-.submit-btn {
+label {
   display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], input[type="tel"], input[type="email"], select {
   width: 100%;
-  padding: 1rem;
-  background: #1E88E5;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="number"] {
+  width: 70px;
+}
+
+input[type="date"] {
+  padding: 10px;
+}
+
+input[type="submit"], button {
+  background-color: #ff4500;
   color: white;
   border: none;
+  padding: 15px;
+  text-align: center;
+  display: inline-block;
   font-size: 1.2rem;
+  margin: 10px 0;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.submit-btn:hover {
-  background: #00C853;
+input[type="submit"]:hover, button:hover {
+  background-color: #e53e00;
+}
+
+#summary-section {
+  margin-top: 20px;
+}
+
+#quote-summary {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 1.8rem; /* Increased size for the quote section */
+}
+
+#total-price {
+  font-size: 2.5rem; /* Increase the font size for the total price */
+  color: #ff4500;
+  font-weight: bold;
+}
+
+/* Receipt Styling */
+#receipt {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#receipt h2 {
+  margin-bottom: 15px;
+}
+
+#receipt-logo {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+#receipt-summary {
+  font-size: 1.5rem;
+}
+
+#receipt-total {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4500;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  input[type="submit"], button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #quote-summary {
+    font-size: 1.6rem; /* Adjust size for smaller screens */
+  }
+
+  #total-price {
+    font-size: 2rem;
+  }
 }
