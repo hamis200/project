@@ -1,87 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BongoBites Event Order Form</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BongoBites Event Order Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
-    <h1>BongoBites Event Catering</h1>
-    <img src="logo.png" alt="BongoBites Logo" class="logo">
-  </header>
-
-  <section class="order-form">
-    <form id="orderForm" name="order" data-netlify="true">
-      <div class="form-section">
-        <h2>Event Details</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-
-        <label for="venue">Venue:</label>
-        <input type="text" id="venue" name="venue" placeholder="Enter the venue" required>
-
-        <label for="date">Event Date:</label>
-        <input type="date" id="date" name="date" required>
-        
-        <label for="notes">Notes:</label>
-        <input type="text" id="notes" name="venue" placeholder="Please Enter Important Information about the Venue" required>
-
-      </div>
-
-      <div class="form-section">
-        <h2>Food Menu</h2>
-        <div class="food-options">
-          <div class="food-card">
-            <img src="biryani.jpg" alt="Biryani">
-            <h3>Biryani (Lamb or Chicken)</h3>
-            <p>€9.50 (Includes salad and chili)</p>
-            <label for="biryani">Quantity:</label>
-            <input class="quantity-input" type="number" id="biryani" name="biryani" min="0" value="0" data-price="9.50">
-          </div>
-
-          <div class="food-card">
-            <img src="pilau.jpg" alt="Chicken Pilau">
-            <h3>Chicken Pilau</h3>
-            <p>€8.50</p>
-            <label for="pilau">Quantity:</label>
-            <input class="quantity-input" type="number" id="pilau" name="pilau" min="0" value="0" data-price="8.50">
-          </div>
-
-          <div class="food-card">
-            <img src="sambusa.jpg" alt="Sambusa">
-            <h3>Sambusa</h3>
-            <p>€1.20</p>
-            <label for="sambusa">Quantity:</label>
-            <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="0" value="0" data-price="1.20">
-          </div>
-
-          <div class="food-card">
-            <img src="springroll.jpg" alt="Spring Rolls">
-            <h3>Spring Rolls</h3>
-            <p>€1.20</p>
-            <label for="springrolls">Quantity:</label>
-            <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="0" value="0" data-price="1.20">
-          </div>
+    <header class="header">
+        <div class="logo">
+            <img src="path-to-your-logo.png" alt="BongoBites Logo">
         </div>
-      </div>
+        <h1>BongoBites Event Food Order Form</h1>
+    </header>
+    
+    <div class="form-container">
+        <form id="order-form">
+            <!-- Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-      <div class="summary-section">
-        <h2>Your Quote</h2>
-        <div id="quote-summary"></div>
-        <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
-      </div>
+            <!-- Phone Number -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-      <input type="hidden" name="form-name" value="order">
-      <button type="submit" class="submit-btn">Submit Order</button>
-    </form>
-  </section>
+            <!-- Attendance -->
+            <label for="guest-count">Number of Guests:</label>
+            <input type="number" id="guest-count" name="guest-count" min="1" required>
 
-  <script src="script.js"></script>
+            <!-- Venue -->
+            <label for="venue">Venue:</label>
+            <input type="text" id="venue" name="venue" placeholder="Enter the event venue" required>
+
+            <!-- Event Type -->
+            <label for="event-type">Event Type:</label>
+            <select id="event-type" name="event-type" required>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="birthday">Birthday</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Date -->
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" name="event-date" required>
+
+            <!-- Time -->
+            <label for="event-time">Event Time:</label>
+            <input type="time" id="event-time" name="event-time" required>
+
+            <!-- Delivery Time -->
+            <label for="delivery-time">Preferred Delivery/Setup Time:</label>
+            <input type="time" id="delivery-time" name="delivery-time">
+
+            <!-- Food Selection -->
+            <label for="food-selection">Food Selection:</label>
+            <div class="food-selection">
+                <div class="food-item">
+                    <input type="checkbox" id="biryani-lamb" name="food[]" value="Biryani Lamb">
+                    <label for="biryani-lamb">Biryani Lamb (9.50€)</label>
+                    <input type="number" class="quantity-input" placeholder="Quantity" id="biryani-lamb-quantity">
+                </div>
+                <div class="food-item">
+                    <input type="checkbox" id="biryani-chicken" name="food[]" value="Biryani Chicken">
+                    <label for="biryani-chicken">Biryani Chicken (9.50€)</label>
+                    <input type="number" class="quantity-input" placeholder="Quantity" id="biryani-chicken-quantity">
+                </div>
+                <div class="food-item">
+                    <input type="checkbox" id="chicken-pilau" name="food[]" value="Chicken Pilau">
+                    <label for="chicken-pilau">Chicken Pilau (8.50€)</label>
+                    <input type="number" class="quantity-input" placeholder="Quantity" id="chicken-pilau-quantity">
+                </div>
+                <div class="food-item">
+                    <input type="checkbox" id="sambusa" name="food[]" value="Sambusa">
+                    <label for="sambusa">Sambusa (1.20€)</label>
+                    <input type="number" class="quantity-input" placeholder="Quantity" id="sambusa-quantity">
+                </div>
+                <div class="food-item">
+                    <input type="checkbox" id="spring-rolls" name="food[]" value="Spring Rolls">
+                    <label for="spring-rolls">Spring Rolls (1.20€)</label>
+                    <input type="number" class="quantity-input" placeholder="Quantity" id="spring-rolls-quantity">
+                </div>
+            </div>
+
+            <!-- Food Allergies Section -->
+            <label for="allergies">Any Food Allergies?</label>
+            <textarea id="allergies" name="allergies" placeholder="Please specify any food allergies"></textarea>
+
+            <!-- Special Instructions -->
+            <label for="special-instructions">Special Instructions:</label>
+            <textarea id="special-instructions" name="special-instructions" placeholder="Enter any special instructions"></textarea>
+
+            <!-- Quote Section -->
+            <div id="quote-summary">
+                <h2>Order Summary</h2>
+                <div id="summary-details"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 BongoBites. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
