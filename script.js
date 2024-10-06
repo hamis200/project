@@ -1,53 +1,69 @@
-document.getElementById("order-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    updateSummary();
-    sendEmail();
-});
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('orderForm');
+    const quoteSummary = document.getElementById('quote-summary');
+    const totalPriceEl = document.getElementById('total-price');
+    const quantityInputs = document.querySelectorAll('.quantity-input');
 
-const priceMap = {
-    'Biryani Lamb': 9.50,
-    'Biryani Chicken': 9.50,
-    'Chicken Pilau': 8.50,
-    'Sambusa': 1.20,
-    'Spring Rolls': 1.20
-};
-
-function updateSummary() {
-    const selectedItems = [];
     let totalPrice = 0;
-    const summaryDetails = document.getElementById('summary-details');
-    summaryDetails.innerHTML = '';
 
-    document.querySelectorAll('.food-item').forEach(function (item) {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const quantityInput = item.querySelector('.quantity-input');
-        
-        if (checkbox.checked && quantityInput.value > 0) {
-            const itemName = checkbox.value;
-            const itemQuantity = parseInt(quantityInput.value);
-            const itemPrice = priceMap[itemName] * itemQuantity;
-            totalPrice += itemPrice;
-            selectedItems.push(`${itemName} (x${itemQuantity}): €${itemPrice.toFixed(2)}`);
-        }
+    // Function to update the quote summary and total price
+    function updateSummary() {
+        let summaryHTML = '';
+        totalPrice = 0;
+
+        quantityInputs.forEach(input => {
+            const quantity = input.value;
+            const price = parseFloat(input.getAttribute('data-price'));
+            if (quantity > 0) {
+                const itemTotal = quantity * price;
+                totalPrice += itemTotal;
+                summaryHTML += `<p>${quantity} x ${input.previousElementSibling.previousElementSibling.innerHTML}: €${itemTotal.toFixed(2)}</p>`;
+            }
+        });
+
+        quoteSummary.innerHTML = summaryHTML || '<p>No items selected.</p>';
+        totalPriceEl.textContent = totalPrice.toFixed(2);
+    }
+
+    // Add event listeners to update the summary when quantity changes
+    quantityInputs.forEach(input => {
+        input.addEventListener('input', updateSummary);
     });
 
-    selectedItems.forEach(function (item) {
-        summaryDetails.innerHTML += `<p>${item}</p>`;
+    // Form submission with Netlify
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const emailData = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            venue: formData.get('venue'),
+            date: formData.get('date'),
+            summary: quoteSummary.innerHTML,
+            total: totalPriceEl.textContent
+        };
+
+        sendEmail(emailData); // Call the email function
+
+        alert("Your quote has been submitted. We will contact you shortly!");
+        form.reset();
+        updateSummary(); // Reset summary
     });
 
-    summaryDetails.innerHTML += `<p><strong>Total: €${totalPrice.toFixed(2)}</strong></p>`;
-}
+    // Function to send email (using Netlify or another service)
+    function sendEmail(data) {
+        const message = `
+        <h2>New Order Received</h2>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Venue:</strong> ${data.venue}</p>
+        <p><strong>Date:</strong> ${data.date}</p>
+        <h3>Order Summary:</h3>
+        ${data.summary}
+        <p><strong>Total:</strong> €${data.total}</p>
+      `;
 
-function sendEmail() {
-    const emailData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        guests: document.getElementById('guest-count').value,
-        venue: document.getElementById('venue').value,
-        eventDate: document.getElementById('event-date').value,
-        selectedItems: document.getElementById('summary-details').innerHTML,
-    };
-
-    // Placeholder for email sending logic.
-    console.log("Sending email with the following data:", emailData);
-}
+        console.log("Sending email with the following data:", message);
+    }
+});
