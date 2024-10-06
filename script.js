@@ -22,3 +22,12 @@ function calculateTotal(event) {
   // Display the total price
   document.getElementById('totalPrice').innerHTML = `Total Price: €${total.toFixed(2)}`;
 }
+// Placeholder for any JavaScript functionality
+
+// You can add functionality for submitting the form using JavaScript if needed
+document.querySelector('.order-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  // Example alert - replace with your form submission logic
+  alert('Form Submitted! We will process your order.');
+});
