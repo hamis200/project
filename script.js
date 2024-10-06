@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: formData.get('phone'),
             venue: formData.get('venue'),
             date: formData.get('date'),
+            time: formData.get('time'),
+            eventType: formData.get('eventType'),
+            guestCount: formData.get('guestCount'),
+            allergies: formData.get('allergies'),
+            dietPreferences: formData.get('dietPreferences'),
             summary: quoteSummary.innerHTML,
             total: totalPriceEl.textContent
         };
@@ -59,6 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
         <p><strong>Phone:</strong> ${data.phone}</p>
         <p><strong>Venue:</strong> ${data.venue}</p>
         <p><strong>Date:</strong> ${data.date}</p>
+        <p><strong>Time:</strong> ${data.time}</p>
+        <p><strong>Event Type:</strong> ${data.eventType}</p>
+        <p><strong>Guest Count:</strong> ${data.guestCount}</p>
+        <p><strong>Food Allergies:</strong> ${data.allergies}</p>
+        <p><strong>Dietary Preferences:</strong> ${data.dietPreferences}</p>
         <h3>Order Summary:</h3>
         ${data.summary}
         <p><strong>Total:</strong> €${data.total}</p>
