@@ -2,107 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BongoBites Event Order Form</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BongoBites Event Order Form</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>BongoBites Event Catering</h1>
-        <img src="logo.png" alt="BongoBites Logo" class="logo">
-    </header>
+  <header>
+    <img src="logo.png" alt="BongoBites Logo" class="logo">
+    <h1>Welcome to BongoBites Event Catering</h1>
+    <p class="islamic-message">"He who gives food to a fasting person shall earn a reward equivalent to that of the fasting person without diminishing their reward in the slightest." - Prophet Muhammad (PBUH)</p>
+  </header>
 
-    <section class="order-form">
-        <form id="orderForm" name="order" data-netlify="true">
-            <div class="form-section">
-                <h2>Event Details</h2>
+  <section class="order-form">
+    <form id="orderForm" name="order" data-netlify="true">
+      <div class="form-section">
+        <h2>Event Details</h2>
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-                <label for="venue">Venue:</label>
-                <input type="text" id="venue" name="venue" placeholder="Enter the venue" required>
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" name="venue" placeholder="Enter the venue" required>
 
-                <label for="date">Event Date:</label>
-                <input type="date" id="date" name="date" required>
+        <label for="date">Event Date:</label>
+        <input type="date" id="date" name="date" required>
 
-                <label for="time">Event Time:</label>
-                <input type="time" id="time" name="time" required>
+        <div class="time-container">
+          <label for="time">Event Time:</label>
+          <input type="time" id="time" name="time" required>
+        </div>
 
-                <label for="eventType">Event Type:</label>
-                <select id="eventType" name="eventType" required>
-                    <option value="" disabled selected>Select Event Type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="birthday">Birthday</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="private">Private Party</option>
-                </select>
+        <div class="event-type-container">
+          <label for="eventType">Event Type:</label>
+          <select id="eventType" name="eventType">
+            <option value="" disabled selected>Select Event Type</option>
+            <option value="wedding">Wedding</option>
+            <option value="engagement">Engagement</option>
+            <option value="aqiqah">Aqiqah</option>
+            <option value="small-gathering">Small Gathering</option>
+            <option value="birthday">Birthday</option>
+            <option value="corporate-event">Corporate Event</option>
+            <option value="other">Other</option>
+          </select>
+          <div id="otherEvent" class="hidden">
+            <input type="text" id="otherEventType" name="otherEventType" placeholder="Please specify other event type">
+          </div>
+        </div>
 
-                <label for="guestCount">Estimated Guest Count:</label>
-                <input type="number" id="guestCount" name="guestCount" placeholder="Enter guest count" required>
+        <label for="guestCount">Estimated Guest Count:</label>
+        <input type="number" id="guestCount" name="guestCount" placeholder="Enter guest count" required>
 
-                <label for="allergies">Food Allergies:</label>
-                <textarea id="allergies" name="allergies" placeholder="Please mention any food allergies"></textarea>
+        <label for="allergies">Food Allergies:</label>
+        <textarea id="allergies" name="allergies" placeholder="Please mention any food allergies"></textarea>
 
-                <label for="dietPreferences">Dietary Preferences:</label>
-                <textarea id="dietPreferences" name="dietPreferences" placeholder="Please mention any dietary preferences"></textarea>
-            </div>
+        <label for="dietPreferences">Dietary Preferences:</label>
+        <textarea id="dietPreferences" name="dietPreferences" placeholder="Please mention any dietary preferences"></textarea>
+      </div>
 
-            <div class="form-section">
-                <h2>Food Menu</h2>
-                <div class="food-options">
-                    <div class="food-card">
-                        <img src="biryani.jpg" alt="Biryani">
-                        <h3>Biryani (Lamb or Chicken)</h3>
-                        <p>€9.50 (Includes salad and chili)</p>
-                        <label for="biryani">Quantity:</label>
-                        <input class="quantity-input" type="number" id="biryani" name="biryani" min="0" value="0" data-price="9.50">
-                    </div>
+      <div class="form-section">
+        <h2>Food Menu</h2>
+        <div class="food-options">
+          <div class="food-card">
+            <img src="biryani.jpg" alt="Biryani">
+            <h3>Biryani (Lamb or Chicken)</h3>
+            <p>€9.50 (Includes salad and chili)</p>
+            <label for="biryani">Quantity:</label>
+            <input class="quantity-input" type="number" id="biryani" name="biryani" min="0" value="0" data-price="9.50">
+          </div>
 
-                    <div class="food-card">
-                        <img src="pilau.jpg" alt="Chicken Pilau">
-                        <h3>Chicken Pilau</h3>
-                        <p>€8.50</p>
-                        <label for="pilau">Quantity:</label>
-                        <input class="quantity-input" type="number" id="pilau" name="pilau" min="0" value="0" data-price="8.50">
-                    </div>
+          <div class="food-card">
+            <img src="pilau.jpg" alt="Chicken Pilau">
+            <h3>Chicken Pilau</h3>
+            <p>€8.50</p>
+            <label for="pilau">Quantity:</label>
+            <input class="quantity-input" type="number" id="pilau" name="pilau" min="0" value="0" data-price="8.50">
+          </div>
 
-                    <div class="food-card">
-                        <img src="sambusa.jpg" alt="Sambusa">
-                        <h3>Sambusa</h3>
-                        <p>€1.20</p>
-                        <label for="sambusa">Quantity:</label>
-                        <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="0" value="0" data-price="1.20">
-                    </div>
+          <div class="food-card">
+            <img src="sambusa.jpg" alt="Sambusa">
+            <h3>Sambusa</h3>
+            <p>€1.20</p>
+            <label for="sambusa">Quantity:</label>
+            <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="0" value="0" data-price="1.20">
+          </div>
 
-                    <div class="food-card">
-                        <img src="springroll.jpg" alt="Spring Rolls">
-                        <h3>Spring Rolls</h3>
-                        <p>€1.20</p>
-                        <label for="springrolls">Quantity:</label>
-                        <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="0" value="0" data-price="1.20">
-                    </div>
-                </div>
-            </div>
+          <div class="food-card">
+            <img src="springroll.jpg" alt="Spring Rolls">
+            <h3>Spring Rolls</h3>
+            <p>€1.20</p>
+            <label for="springrolls">Quantity:</label>
+            <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="0" value="0" data-price="1.20">
+          </div>
+        </div>
+      </div>
 
-            <div class="summary-section">
-                <h2>Your Quote</h2>
-                <div id="quote-summary"></div>
-                <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
-            </div>
+      <div class="summary-section">
+        <h2>Your Quote</h2>
+        <div id="quote-summary"></div>
+        <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
+      </div>
 
-            <input type="hidden" name="form-name" value="order">
-            <button type="submit" class="submit-btn">Submit Order</button>
-        </form>
-    </section>
+      <input type="hidden" name="form-name" value="order">
+      <button type="submit" class="submit-btn">Submit Order</button>
+    </form>
+  </section>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
