@@ -1,24 +1,36 @@
+
+/* CSS - styles.css */
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #f9f9f9;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 header {
   background: linear-gradient(45deg, #1E88E5, #00C853);
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 header h1 {
   color: white;
   font-size: 2.5rem;
+  margin-left: 1rem;
 }
 
 .logo {
   max-width: 120px;
-  display: block;
-  margin: 0.5rem auto;
+}
+
+.quote-section {
+  text-align: center;
+  margin: 2rem;
+  font-size: 1.2rem;
+  color: #444;
 }
 
 .order-form {
@@ -40,7 +52,7 @@ header h1 {
   border-bottom: 2px solid #00C853;
 }
 
-input[type="text"], input[type="tel"], input[type="date"], input[type="time"], textarea, select {
+input[type="text"], input[type="tel"], input[type="date"], input[type="time"], select, textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -80,6 +92,8 @@ input[type="text"], input[type="tel"], input[type="date"], input[type="time"], t
 .quantity-input {
   margin-top: 1rem;
   display: inline-block;
+  width: 60px;
+  text-align: center;
 }
 
 .summary-section {
@@ -99,17 +113,13 @@ input[type="text"], input[type="tel"], input[type="date"], input[type="time"], t
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 4px;
+  transition: background 0.3s;
 }
 
 .submit-btn:hover {
   background: #00C853;
 }
 
-.notification-message {
-  display: none;
-  background-color: #00C853;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+#other-event-type {
+  margin-top: 1rem;
 }
