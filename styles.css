@@ -19,6 +19,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 }
 
 header h1 {
@@ -30,6 +32,12 @@ header h1 {
   max-width: 100px;
 }
 
+/* Three.js Section Styling */
+#threejs-container {
+  width: 100px;
+  height: 100px;
+}
+
 /* Quote Section Styling */
 .quote-section {
   text-align: center;
@@ -37,6 +45,7 @@ header h1 {
   font-size: 1.1rem;
   color: #555;
   position: relative;
+  overflow: hidden;
 }
 
 .quote-section blockquote {
@@ -52,6 +61,15 @@ header h1 {
   max-width: 200px;
   width: 100%;
   height: auto;
+}
+
+.anime-animation {
+  margin-top: 2rem;
+}
+
+.anime-animation svg {
+  width: 100px;
+  height: 100px;
 }
 
 /* Order Form Styling */
@@ -165,6 +183,10 @@ textarea:focus {
   outline: none;
 }
 
+.lottie-animation {
+  margin-top: 2rem;
+}
+
 .summary-section {
   background: #f5f5f5;
   padding: 1.5rem;
@@ -213,6 +235,10 @@ footer p {
   margin-bottom: 0.5rem;
 }
 
+footer .lottie-animation {
+  margin-top: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   header {
@@ -224,11 +250,25 @@ footer p {
     margin-top: 1rem;
   }
 
+  #threejs-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .threejs-section {
+    height: 300px;
+  }
+
   .food-options {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
   .food-card img {
     height: 120px;
+  }
+
+  .anime-animation svg {
+    width: 80px;
+    height: 80px;
   }
 }
