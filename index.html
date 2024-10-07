@@ -9,12 +9,20 @@
 <body>
 
   <header>
-    <h1>BongoBites Event Catering</h1>
-    <img src="logo.png" alt="BongoBites Logo" class="logo">
+    <div class="header-container">
+      <img src="logo.png" alt="BongoBites Logo" class="logo">
+      <h1>BongoBites Event Catering</h1>
+    </div>
   </header>
 
+  <section class="quote-section">
+    <blockquote class="islamic-quote">
+      Feeding others is an act of love and brotherhood in Islam, regardless of their financial status. The Prophet Muhammad (PBUH) said, 'O people, spread peace, feed others, uphold family ties, and pray during the night while others sleep, and you will enter Paradise in peace' (Tirmidhi). Sharing food is a means of strengthening bonds, fostering unity, and embodying the compassion that Islam teaches.
+    </blockquote>
+  </section>
+
   <section class="order-form">
-    <form id="orderForm">
+    <form id="orderForm" name="order" data-netlify="true">
       <div class="form-section">
         <h2>Event Details</h2>
         <label for="name">Name:</label>
@@ -34,15 +42,16 @@
 
         <label for="event-type">Event Type:</label>
         <select id="event-type" name="event-type" required>
-          <option value="" disabled selected>Select Event Type</option>
+          <option value="">Select Event Type</option>
           <option value="wedding">Wedding</option>
+          <option value="birthday">Birthday</option>
           <option value="aqiqah">Aqiqah</option>
           <option value="small-gathering">Small Gathering</option>
           <option value="other">Other</option>
         </select>
-        <div id="other-event-type-container" style="display:none;">
-          <label for="other-event-type">Please specify:</label>
-          <input type="text" id="other-event-type" name="other-event-type">
+        <div id="other-event-type" style="display: none;">
+          <label for="other-event">Please specify:</label>
+          <input type="text" id="other-event" name="other-event">
         </div>
 
         <label for="guest-count">Estimated Guest Count:</label>
@@ -52,7 +61,7 @@
         <textarea id="food-allergies" name="food-allergies" placeholder="Please mention any food allergies"></textarea>
 
         <label for="dietary-preferences">Dietary Preferences:</label>
-        <textarea id="dietary-preferences" name="dietary-preferences" placeholder="Mention any dietary preferences (e.g., vegetarian)"></textarea>
+        <textarea id="dietary-preferences" name="dietary-preferences" placeholder="Please mention any dietary preferences"></textarea>
       </div>
 
       <div class="form-section">
@@ -98,12 +107,9 @@
         <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
       </div>
 
+      <input type="hidden" name="form-name" value="order">
       <button type="submit" class="submit-btn">Submit Order</button>
     </form>
-
-    <div class="notification-message" id="notificationMessage">
-      Your quote has been submitted. We will contact you shortly!
-    </div>
   </section>
 
   <script src="script.js"></script>
