@@ -5,11 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BongoBites Event Catering</title>
   
-  <!-- Link to Google Fonts for a modern font -->
+  <!-- Google Fonts for Modern Typography -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   
-  <!-- Link to Lottie Player -->
+  <!-- Lottie Player -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-wE7cZMQexzqdfN/R7v/T4K6kEZ7qs2vmdoGHZ1pGAA/NxHagPgiUS2xMfYr3a3P8gBBnyZ+8jaNmYYM3+YbqBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- ScrollMagic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-TqfKyo0r/pJr+DeVm9q9No4ih4wX3D4T14MWQtvDCMB0hHSDrRKVNV1bIqca3+gNqFJD3mIbKIGZ0V1kPZk9VQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- ScrollMagic GSAP Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" integrity="sha512-8pX9eGx0LcG+UhaI2xjxK7kekbtRWyU3BrX8EGaXG0Cvs9+ClKXZMp8pR0N8VwgZx3lRH91kF1Kx4LBW2Pu2JQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js" integrity="sha512-Zn3KbLX9Us1mskA1k5Vh7SgzdvgnOjvUX9gGhO1h8ZvU6EW8Xo0XkLM0QkV85VJs+zDCg5Kk1fNcfRvPnGwKxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-2btc1aUvIzQezKqIhqa+fbJ0wIo1R1E4Lh3rqlnJ5I1juQY8l+PCm0jWbfBtlIcaEvvhJYdu/5H0rO8P/0Oqcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
   <!-- Link to your CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -22,7 +36,7 @@
       <img src="logo.png" alt="BongoBites Logo" class="logo">
       <h1>BongoBites Event Catering</h1>
       
-      <!-- Lottie Animation Example -->
+      <!-- Lottie Animation Example (Decorative) -->
       <lottie-player 
         src="https://assets10.lottiefiles.com/packages/lf20_totrpclr.json" 
         background="transparent" 
@@ -31,6 +45,9 @@
         loop 
         autoplay>
       </lottie-player>
+      
+      <!-- Three.js 3D Object Placeholder -->
+      <div id="threejs-container"></div>
     </div>
   </header>
 
@@ -44,6 +61,13 @@
     <div class="foodie-art">
       <!-- You can add an SVG or an image representing food art here -->
       <img src="foodie-art.png" alt="Foodie Art" />
+    </div>
+    
+    <!-- Anime.js Animation (SVG) -->
+    <div class="anime-animation">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" stroke="#1E88E5" stroke-width="3" fill="#00C853" />
+      </svg>
     </div>
   </section>
 
@@ -133,14 +157,16 @@
         </div>
         
         <!-- Lottie Animation in Food Menu -->
-        <lottie-player 
-          src="https://assets10.lottiefiles.com/packages/lf20_your_animation.json" 
-          background="transparent" 
-          speed="1" 
-          style="width: 150px; height: 150px; margin: 20px auto;" 
-          loop 
-          autoplay>
-        </lottie-player>
+        <div class="lottie-animation">
+          <lottie-player 
+            src="https://assets10.lottiefiles.com/packages/lf20_your_animation.json" 
+            background="transparent" 
+            speed="1" 
+            style="width: 150px; height: 150px; margin: 20px auto;" 
+            loop 
+            autoplay>
+          </lottie-player>
+        </div>
       </div>
 
       <div class="summary-section">
