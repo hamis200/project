@@ -64,14 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sendEmail(emailData); // Call the email function
 
-    // Optional: Trigger a success animation using Lottie
-    // Example:
-    /*
-    const successAnimation = document.getElementById('success-animation');
-    successAnimation.style.display = 'block';
-    successAnimation.play();
-    */
-
     alert("Your quote has been submitted. We will contact you shortly!");
     form.reset();
     updateSummary(); // Reset summary
@@ -102,4 +94,96 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize summary on page load
   updateSummary();
+
+  /* === GSAP Animations === */
+
+  // Animate Header Elements on Load
+  gsap.from(".header-container img, .header-container h1, .header-container lottie-player", {
+    duration: 1.5,
+    opacity: 0,
+    y: -50,
+    ease: "power2.out",
+    stagger: 0.3
+  });
+
+  /* === Three.js 3D Animation === */
+
+  // Basic Three.js setup: rotating cube
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, document.getElementById('threejs-container').clientWidth / document.getElementById('threejs-container').clientHeight, 0.1, 1000);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(document.getElementById('threejs-container').clientWidth, document.getElementById('threejs-container').clientHeight);
+  document.getElementById('threejs-container').appendChild(renderer.domElement);
+
+  const geometry = new THREE.BoxGeometry();
+  const material = new THREE.MeshStandardMaterial({ color: 0x00C853, wireframe: false });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+
+  // Add lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+
+  const pointLight = new THREE.PointLight(0xffffff, 0.8);
+  camera.add(pointLight);
+  scene.add(camera);
+
+  camera.position.z = 5;
+
+  function animateThreeJS() {
+    requestAnimationFrame(animateThreeJS);
+
+    // Rotate the cube
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+  }
+
+  animateThreeJS();
+
+  // Handle window resize for Three.js
+  window.addEventListener('resize', () => {
+    const container = document.getElementById('threejs-container');
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  /* === ScrollMagic Animations === */
+
+  // Initialize ScrollMagic Controller
+  const controller = new ScrollMagic.Controller();
+
+  // Animate Order Form on Scroll
+  new ScrollMagic.Scene({
+    triggerElement: ".order-form",
+    triggerHook: 0.8,
+    reverse: false
+  })
+  .setTween(gsap.from(".order-form", { duration: 1, y: 100, opacity: 0, ease: "power2.out" }))
+  .addTo(controller);
+
+  /* === Anime.js Animation === */
+
+  // Simple Anime.js animation for the SVG circle
+  anime({
+    targets: '.anime-animation svg circle',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 2000,
+    delay: 500,
+    direction: 'alternate',
+    loop: true
+  });
+
+  /* === Lottie Animation Controls === */
+
+  // Optional: Control Lottie animations via JavaScript if needed
+  // Example: Pause the Lottie animation when the form is submitted
+  const lottieAnimations = document.querySelectorAll('lottie-player');
+  form.addEventListener('submit', function () {
+    lottieAnimations.forEach(anim => anim.pause());
+  });
 });
