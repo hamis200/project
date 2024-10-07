@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BongoBites Event Order Form</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
   <header>
+    <h1>BongoBites Event Catering</h1>
     <img src="logo.png" alt="BongoBites Logo" class="logo">
-    <h1>Welcome to BongoBites Event Catering</h1>
-    <p class="islamic-message">"He who gives food to a fasting person shall earn a reward equivalent to that of the fasting person without diminishing their reward in the slightest." - Prophet Muhammad (PBUH)</p>
   </header>
 
   <section class="order-form">
-    <form id="orderForm" name="order" data-netlify="true">
+    <form id="orderForm">
       <div class="form-section">
         <h2>Event Details</h2>
-
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
+        
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
@@ -33,36 +29,30 @@
         <label for="date">Event Date:</label>
         <input type="date" id="date" name="date" required>
 
-        <div class="time-container">
-          <label for="time">Event Time:</label>
-          <input type="time" id="time" name="time" required>
+        <label for="time">Event Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="event-type">Event Type:</label>
+        <select id="event-type" name="event-type" required>
+          <option value="" disabled selected>Select Event Type</option>
+          <option value="wedding">Wedding</option>
+          <option value="aqiqah">Aqiqah</option>
+          <option value="small-gathering">Small Gathering</option>
+          <option value="other">Other</option>
+        </select>
+        <div id="other-event-type-container" style="display:none;">
+          <label for="other-event-type">Please specify:</label>
+          <input type="text" id="other-event-type" name="other-event-type">
         </div>
 
-        <div class="event-type-container">
-          <label for="eventType">Event Type:</label>
-          <select id="eventType" name="eventType">
-            <option value="" disabled selected>Select Event Type</option>
-            <option value="wedding">Wedding</option>
-            <option value="engagement">Engagement</option>
-            <option value="aqiqah">Aqiqah</option>
-            <option value="small-gathering">Small Gathering</option>
-            <option value="birthday">Birthday</option>
-            <option value="corporate-event">Corporate Event</option>
-            <option value="other">Other</option>
-          </select>
-          <div id="otherEvent" class="hidden">
-            <input type="text" id="otherEventType" name="otherEventType" placeholder="Please specify other event type">
-          </div>
-        </div>
+        <label for="guest-count">Estimated Guest Count:</label>
+        <input type="number" id="guest-count" name="guest-count" placeholder="Enter guest count" required>
 
-        <label for="guestCount">Estimated Guest Count:</label>
-        <input type="number" id="guestCount" name="guestCount" placeholder="Enter guest count" required>
+        <label for="food-allergies">Food Allergies:</label>
+        <textarea id="food-allergies" name="food-allergies" placeholder="Please mention any food allergies"></textarea>
 
-        <label for="allergies">Food Allergies:</label>
-        <textarea id="allergies" name="allergies" placeholder="Please mention any food allergies"></textarea>
-
-        <label for="dietPreferences">Dietary Preferences:</label>
-        <textarea id="dietPreferences" name="dietPreferences" placeholder="Please mention any dietary preferences"></textarea>
+        <label for="dietary-preferences">Dietary Preferences:</label>
+        <textarea id="dietary-preferences" name="dietary-preferences" placeholder="Mention any dietary preferences (e.g., vegetarian)"></textarea>
       </div>
 
       <div class="form-section">
@@ -108,12 +98,14 @@
         <p>Total Price: <strong>€<span id="total-price">0.00</span></strong></p>
       </div>
 
-      <input type="hidden" name="form-name" value="order">
       <button type="submit" class="submit-btn">Submit Order</button>
     </form>
+
+    <div class="notification-message" id="notificationMessage">
+      Your quote has been submitted. We will contact you shortly!
+    </div>
   </section>
 
   <script src="script.js"></script>
 </body>
-
 </html>
