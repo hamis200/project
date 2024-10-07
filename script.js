@@ -1,4 +1,3 @@
-
 /* JavaScript - script.js */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
     totalPrice = 0;
     
     quantityInputs.forEach(input => {
-      const quantity = input.value;
+      const quantity = parseInt(input.value, 10);
       const price = parseFloat(input.getAttribute('data-price'));
       if (quantity > 0) {
         const itemTotal = quantity * price;
         totalPrice += itemTotal;
-        summaryHTML += `<p>${quantity} x ${input.previousElementSibling.previousElementSibling.innerHTML}: €${itemTotal.toFixed(2)}</p>`;
+        summaryHTML += `<p>${quantity} x ${input.closest('.food-card').querySelector('h3').innerText}: €${itemTotal.toFixed(2)}</p>`;
       }
     });
 
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
       venue: formData.get('venue'),
       date: formData.get('date'),
       time: formData.get('time'),
-      eventType: formData.get('event-type'),
+      eventType: formData.get('event-type') === 'other' ? formData.get('other-event') : formData.get('event-type'),
       guestCount: formData.get('guest-count'),
       foodAllergies: formData.get('food-allergies'),
       dietaryPreferences: formData.get('dietary-preferences'),
@@ -64,6 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     sendEmail(emailData); // Call the email function
+
+    // Optional: Trigger a success animation using Lottie
+    // Example:
+    /*
+    const successAnimation = document.getElementById('success-animation');
+    successAnimation.style.display = 'block';
+    successAnimation.play();
+    */
 
     alert("Your quote has been submitted. We will contact you shortly!");
     form.reset();
@@ -83,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <p><strong>Guest Count:</strong> ${data.guestCount}</p>
       <p><strong>Food Allergies:</strong> ${data.foodAllergies}</p>
       <p><strong>Dietary Preferences:</strong> ${data.dietaryPreferences}</p>
-      <h3>Order Summary:</h3>wwwww
+      <h3>Order Summary:</h3>
       ${data.summary}
       <p><strong>Total:</strong> €${data.total}</p>
     `;
@@ -92,4 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Sending email with the following data:", message);
     // Implement an email service to actually send this
   }
+
+  // Initialize summary on page load
+  updateSummary();
 });
