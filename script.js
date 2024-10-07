@@ -1,79 +1,74 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('orderForm');
-    const quoteSummary = document.getElementById('quote-summary');
-    const totalPriceEl = document.getElementById('total-price');
-    const quantityInputs = document.querySelectorAll('.quantity-input');
+  const form = document.getElementById('orderForm');
+  const quoteSummary = document.getElementById('quote-summary');
+  const totalPriceEl = document.getElementById('total-price');
+  const notificationMessage = document.getElementById('notificationMessage');
+  const quantityInputs = document.querySelectorAll('.quantity-input');
+  const eventTypeSelect = document.getElementById('event-type');
+  const otherEventTypeContainer = document.getElementById('other-event-type-container');
 
-    let totalPrice = 0;
+  let totalPrice = 0;
 
-    // Function to update the quote summary and total price
-    function updateSummary() {
-        let summaryHTML = '';
-        totalPrice = 0;
+  function updateSummary() {
+    let summaryHTML = '';
+    totalPrice = 0;
 
-        quantityInputs.forEach(input => {
-            const quantity = input.value;
-            const price = parseFloat(input.getAttribute('data-price'));
-            if (quantity > 0) {
-                const itemTotal = quantity * price;
-                totalPrice += itemTotal;
-                summaryHTML += `<p>${quantity} x ${input.previousElementSibling.previousElementSibling.innerHTML}: €${itemTotal.toFixed(2)}</p>`;
-            }
-        });
-
-        quoteSummary.innerHTML = summaryHTML || '<p>No items selected.</p>';
-        totalPriceEl.textContent = totalPrice.toFixed(2);
-    }
-
-    // Add event listeners to update the summary when quantity changes
     quantityInputs.forEach(input => {
-        input.addEventListener('input', updateSummary);
+      const quantity = input.value;
+      const price = parseFloat(input.getAttribute('data-price'));
+      if (quantity > 0) {
+        const itemTotal = quantity * price;
+        totalPrice += itemTotal;
+        summaryHTML += `<p>${quantity} x ${input.previousElementSibling.previousElementSibling.innerHTML}: €${itemTotal.toFixed(2)}</p>`;
+      }
     });
 
-    // Form submission with Netlify
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    quoteSummary.innerHTML = summaryHTML || '<p>No items selected.</p>';
+    totalPriceEl.textContent = totalPrice.toFixed(2);
+  }
 
-        const formData = new FormData(form);
-        const emailData = {
-            name: formData.get('name'),
-            phone: formData.get('phone'),
-            venue: formData.get('venue'),
-            date: formData.get('date'),
-            time: formData.get('time'),
-            eventType: formData.get('eventType'),
-            guestCount: formData.get('guestCount'),
-            allergies: formData.get('allergies'),
-            dietPreferences: formData.get('dietPreferences'),
-            summary: quoteSummary.innerHTML,
-            total: totalPriceEl.textContent
-        };
+  quantityInputs.forEach(input => {
+    input.addEventListener('input', updateSummary);
+  });
 
-        sendEmail(emailData); // Call the email function
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        alert("Your quote has been submitted. We will contact you shortly!");
+    const formData = new FormData(form);
+    const emailData = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      venue: formData.get('venue'),
+      date: formData.get('date'),
+      summary: quoteSummary.innerHTML,
+      total: totalPriceEl.textContent
+    };
+
+    fetch('/.netlify/functions/send-quote', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(emailData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        notificationMessage.style.display = 'block';
+        setTimeout(() => notificationMessage.style.display = 'none', 5000);
         form.reset();
-        updateSummary(); // Reset summary
-    });
+        updateSummary();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("There was an error submitting your quote.");
+      });
+  });
 
-    // Function to send email (using Netlify or another service)
-    function sendEmail(data) {
-        const message = `
-        <h2>New Order Received</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Venue:</strong> ${data.venue}</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Event Type:</strong> ${data.eventType}</p>
-        <p><strong>Guest Count:</strong> ${data.guestCount}</p>
-        <p><strong>Food Allergies:</strong> ${data.allergies}</p>
-        <p><strong>Dietary Preferences:</strong> ${data.dietPreferences}</p>
-        <h3>Order Summary:</h3>
-        ${data.summary}
-        <p><strong>Total:</strong> €${data.total}</p>
-      `;
-
-        console.log("Sending email with the following data:", message);
+  eventTypeSelect.addEventListener('change', function () {
+    if (eventTypeSelect.value === 'other') {
+      otherEventTypeContainer.style.display = 'block';
+    } else {
+      otherEventTypeContainer.style.display = 'none';
     }
+  });
 });
