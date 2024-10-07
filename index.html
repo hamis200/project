@@ -2,29 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BongoBites Event Order Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BongoBites Event Catering</title>
+  
+  <!-- Link to Google Fonts for a modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Link to Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <!-- Link to your CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Header Section -->
   <header>
     <div class="header-container">
       <img src="logo.png" alt="BongoBites Logo" class="logo">
       <h1>BongoBites Event Catering</h1>
+      
+      <!-- Lottie Animation Example -->
+      <lottie-player 
+        src="https://assets10.lottiefiles.com/packages/lf20_totrpclr.json" 
+        background="transparent" 
+        speed="1" 
+        style="width: 100px; height: 100px;" 
+        loop 
+        autoplay>
+      </lottie-player>
     </div>
   </header>
 
+  <!-- Quote Section -->
   <section class="quote-section">
     <blockquote class="islamic-quote">
       Feeding others is an act of love and brotherhood in Islam, regardless of their financial status. The Prophet Muhammad (PBUH) said, 'O people, spread peace, feed others, uphold family ties, and pray during the night while others sleep, and you will enter Paradise in peace' (Tirmidhi). Sharing food is a means of strengthening bonds, fostering unity, and embodying the compassion that Islam teaches.
     </blockquote>
+    
+    <!-- Foodie Art Design Placeholder -->
+    <div class="foodie-art">
+      <!-- You can add an SVG or an image representing food art here -->
+      <img src="foodie-art.png" alt="Foodie Art" />
+    </div>
   </section>
 
+  <!-- Order Form Section -->
   <section class="order-form">
     <form id="orderForm" name="order" data-netlify="true">
       <div class="form-section">
         <h2>Event Details</h2>
+        <!-- Event Details Fields -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
         
@@ -67,6 +95,7 @@
       <div class="form-section">
         <h2>Food Menu</h2>
         <div class="food-options">
+          <!-- Food Item 1 -->
           <div class="food-card">
             <img src="biryani.jpg" alt="Biryani">
             <h3>Biryani (Lamb or Chicken)</h3>
@@ -75,6 +104,7 @@
             <input class="quantity-input" type="number" id="biryani" name="biryani" min="0" value="0" data-price="9.50">
           </div>
 
+          <!-- Food Item 2 -->
           <div class="food-card">
             <img src="pilau.jpg" alt="Chicken Pilau">
             <h3>Chicken Pilau</h3>
@@ -83,6 +113,7 @@
             <input class="quantity-input" type="number" id="pilau" name="pilau" min="0" value="0" data-price="8.50">
           </div>
 
+          <!-- Food Item 3 -->
           <div class="food-card">
             <img src="sambusa.jpg" alt="Sambusa">
             <h3>Sambusa</h3>
@@ -91,6 +122,7 @@
             <input class="quantity-input" type="number" id="sambusa" name="sambusa" min="0" value="0" data-price="1.20">
           </div>
 
+          <!-- Food Item 4 -->
           <div class="food-card">
             <img src="springroll.jpg" alt="Spring Rolls">
             <h3>Spring Rolls</h3>
@@ -99,6 +131,16 @@
             <input class="quantity-input" type="number" id="springrolls" name="springrolls" min="0" value="0" data-price="1.20">
           </div>
         </div>
+        
+        <!-- Lottie Animation in Food Menu -->
+        <lottie-player 
+          src="https://assets10.lottiefiles.com/packages/lf20_your_animation.json" 
+          background="transparent" 
+          speed="1" 
+          style="width: 150px; height: 150px; margin: 20px auto;" 
+          loop 
+          autoplay>
+        </lottie-player>
       </div>
 
       <div class="summary-section">
@@ -112,6 +154,22 @@
     </form>
   </section>
 
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 BongoBites Event Catering. All rights reserved.</p>
+    
+    <!-- Lottie Animation Example -->
+    <lottie-player 
+      src="https://assets10.lottiefiles.com/packages/lf20_footer_animation.json" 
+      background="transparent" 
+      speed="1" 
+      style="width: 100px; height: 100px;" 
+      loop 
+      autoplay>
+    </lottie-player>
+  </footer>
+
+  <!-- Link to your JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
