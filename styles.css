@@ -1,45 +1,72 @@
-
-/* CSS - styles.css */
+/* Reset some basic elements for consistency across browsers */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
   background: #f9f9f9;
   color: #333;
-  margin: 0;
-  padding: 0;
+  line-height: 1.6;
 }
 
+/* Header Styling */
 header {
-  background: linear-gradient(45deg, #1E88E5, #00C853);
-  padding: 1rem;
+  background: linear-gradient(135deg, #1E88E5, #00C853);
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
   color: white;
-  font-size: 2.5rem;
-  margin-left: 1rem;
+  font-size: 2rem;
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 100px;
 }
 
+/* Quote Section Styling */
 .quote-section {
   text-align: center;
-  margin: 2rem;
-  font-size: 1.2rem;
-  color: #444;
+  margin: 2rem 1rem;
+  font-size: 1.1rem;
+  color: #555;
+  position: relative;
 }
 
+.quote-section blockquote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.foodie-art {
+  margin-top: 1rem;
+}
+
+.foodie-art img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+/* Order Form Styling */
 .order-form {
   max-width: 900px;
   margin: 2rem auto;
   background: white;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.order-form:hover {
+  transform: translateY(-5px);
 }
 
 .form-section {
@@ -48,52 +75,94 @@ header h1 {
 
 .form-section h2 {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: #1E88E5;
   border-bottom: 2px solid #00C853;
+  display: inline-block;
+  padding-bottom: 0.5rem;
 }
 
-input[type="text"], input[type="tel"], input[type="date"], input[type="time"], select, textarea {
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"], 
+input[type="tel"], 
+input[type="date"], 
+input[type="time"], 
+select, 
+textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px 15px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-bottom: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="date"]:focus, 
+input[type="time"]:focus, 
+select:focus, 
+textarea:focus {
+  border-color: #1E88E5;
+  outline: none;
 }
 
 .food-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .food-card {
   padding: 1rem;
   background: #f4f4f4;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
 }
 
 .food-card:hover {
-  background: #00C853;
+  background: #1E88E5;
   color: white;
+  transform: translateY(-5px);
 }
 
 .food-card img {
   max-width: 100%;
-  height: auto;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .food-card h3 {
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.food-card p {
+  margin-bottom: 0.5rem;
 }
 
 .quantity-input {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: inline-block;
   width: 60px;
   text-align: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.quantity-input:focus {
+  border-color: #1E88E5;
+  outline: none;
 }
 
 .summary-section {
@@ -103,23 +172,63 @@ input[type="text"], input[type="tel"], input[type="date"], input[type="time"], s
   margin-top: 2rem;
 }
 
+.summary-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #00C853;
+}
+
+#quote-summary p {
+  margin-bottom: 0.5rem;
+}
+
 .submit-btn {
   display: block;
   width: 100%;
-  padding: 1rem;
-  background: #1E88E5;
+  padding: 15px;
+  background: #00C853;
   color: white;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .submit-btn:hover {
-  background: #00C853;
+  background: #1E88E5;
+  transform: scale(1.02);
 }
 
-#other-event-type {
-  margin-top: 1rem;
+/* Footer Styling */
+footer {
+  background: #1E88E5;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-container h1 {
+    margin-top: 1rem;
+  }
+
+  .food-options {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .food-card img {
+    height: 120px;
+  }
 }
