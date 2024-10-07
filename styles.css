@@ -1,43 +1,33 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f4f4f4;
+  background: #f9f9f9;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
 
 header {
-  background: linear-gradient(45deg, #4A90E2, #00C853);
+  background: linear-gradient(45deg, #1E88E5, #00C853);
   padding: 1rem;
   text-align: center;
 }
 
 header h1 {
   color: white;
-  font-size: 2.2rem;
-}
-
-.islamic-message {
-  color: #ffffff;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  font-style: italic;
+  font-size: 2.5rem;
 }
 
 .logo {
   max-width: 120px;
-  display: inline-block;
-  margin: 0.5rem;
-  float: left;
+  display: block;
+  margin: 0.5rem auto;
 }
 
 .order-form {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
   background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 .form-section {
@@ -50,29 +40,12 @@ header h1 {
   border-bottom: 2px solid #00C853;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="date"],
-input[type="number"],
-input[type="time"],
-textarea,
-select {
+input[type="text"], input[type="tel"], input[type="date"], input[type="time"], textarea, select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 1rem;
-  transition: box-shadow 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="number"]:focus,
-input[type="time"]:focus,
-textarea:focus,
-select:focus {
-  box-shadow: 0 0 8px rgba(0, 200, 83, 0.4);
 }
 
 .food-options {
@@ -98,16 +71,15 @@ select:focus {
 .food-card img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+}
+
+.food-card h3 {
+  margin: 1rem 0;
 }
 
 .quantity-input {
-  margin-top: 0.5rem;
-  padding: 8px;
-  width: 70px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
+  margin-top: 1rem;
+  display: inline-block;
 }
 
 .summary-section {
@@ -121,7 +93,7 @@ select:focus {
   display: block;
   width: 100%;
   padding: 1rem;
-  background: #4A90E2;
+  background: #1E88E5;
   color: white;
   border: none;
   font-size: 1.2rem;
@@ -133,26 +105,11 @@ select:focus {
   background: #00C853;
 }
 
-.hidden {
+.notification-message {
   display: none;
-}
-
-/* Mobile-specific styling */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  .food-options {
-    grid-template-columns: 1fr;
-  }
-
-  .order-form {
-    padding: 1rem;
-  }
-
-  .submit-btn {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
+  background-color: #00C853;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
